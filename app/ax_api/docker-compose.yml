@@ -1,0 +1,11 @@
+services:
+  axApi:
+    image: axapi
+    ports:
+      - "3000:3000"
+    environment:
+      APP_NAME: "axapi"
+    volumes:
+      - ./:/app
+    container_name: axapi
+    command: npm start

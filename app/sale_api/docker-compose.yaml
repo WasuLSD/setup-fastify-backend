@@ -1,0 +1,42 @@
+services:
+  db:
+    image: mysql/mysql-server:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      # <Port exposed> : < MySQL Port running inside container>
+      - '3306:3306'
+    expose:
+      # Opens port 3306 on the container
+      - '3306'
+      # Where our data will be persisted
+    volumes: 
+      - ./db-dump:/docker-entrypoint-initdb.d
+# Names our volume
+volumes:
+  my_db:
+
+
+#   services:
+#   mssql:
+#     image: 
+#     environment:
+#       - "APP_NAME=mssql"
+#       - "ACCEPT_EULA=Y"
+#       - "SA_PASSWORD=reallyStrongPwd123"
+#     container_name: sqlserver
+#     ports:
+#       - "1433:1433"
+#     networks:
+#       tempnet:
+#         ipv4_address: 10.5.1.2
+
+# networks:
+#   tempnet:
+#     driver: bridge
+#     ipam:
+#       driver: default
+#       config:
+#         - subnet: 10.5.1.0/24
+#           gateway: 10.5.1.1

@@ -1,15 +1,17 @@
 {
     "extends": "@kha-devspace/tsconfig/common.json",
     "compilerOptions": {
+      "module": "commonjs",
       "target": "es2017",
       "lib": ["es2017"],
       "baseUrl": ".",
-      "rootDir": "src",
+      "rootDir": "./routes",
+      "esModuleInterop": true,
       "paths": {
         "@/utils/*": ["./src/utils/*"]
       }
     },
     "exclude": ["node_modules", "lib/**/*"],
-    "include": ["**/*.ts", "src/utils/rxjsDelay"]
+    "include": ["**/*.ts"]
   }
   
